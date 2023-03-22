@@ -22,16 +22,32 @@ public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customerId;
-    private String customerName;
+    private String firstName;
+    private String lastName;
+    private String identificationNumber;
+    private String contactNumber;
+    private String addressLine1;
+    private String addressLine2;
+    private String postalCode;
 
     public Customer() {
     }
 
-    public Customer(String customerName) {
-        this.customerName = customerName;
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
-    
-    
+        
+    public Customer(Long customerId, String firstName, String lastName, String identificationNumber, String contactNumber, String addressLine1, String addressLine2, String postalCode) {
+        this.customerId = customerId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.identificationNumber = identificationNumber;
+        this.contactNumber = contactNumber;
+        this.addressLine1 = addressLine1;
+        this.addressLine2 = addressLine2;
+        this.postalCode = postalCode;
+    }
 
     public Long getCustomerId() {
         return customerId;
@@ -67,17 +83,17 @@ public class Customer implements Serializable {
     }
 
     /**
-     * @return the customerName
+     * @return the firstName
      */
-    public String getCustomerName() {
-        return customerName;
+    public String getFirstName() {
+        return firstName;
     }
 
     /**
-     * @param customerName the customerName to set
+     * @param firstName the firstName to set
      */
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
     
 }
