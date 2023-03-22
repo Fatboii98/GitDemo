@@ -29,7 +29,7 @@ public class Main {
         List<Customer> customers = customerSessionBeanRemote.retrieveAllCustomers();
         
         customers.forEach(customer -> {
-            System.out.println("customerID" + customer.getCustomerId() + "; customer name = " + customer.getCustomerName());
+            System.out.println("customerID" + customer.getCustomerId() + "; customer name = " + customer.getFirstName());
         });
         
         

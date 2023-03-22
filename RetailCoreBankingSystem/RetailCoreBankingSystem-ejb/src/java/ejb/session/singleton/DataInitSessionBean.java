@@ -37,11 +37,10 @@ public class DataInitSessionBean {
     @PostConstruct
     public void postConstruct() {
         if(em.find(Customer.class, 1l) == null){
-            customerSessionBeanLocal.createNewCustomer(new Customer("Record A"));
-            customerSessionBeanLocal.createNewCustomer(new Customer("Record B"));
-            customerSessionBeanLocal.createNewCustomer(new Customer("Record C"));
-            customerSessionBeanLocal.createNewCustomer(new Customer("Record D"));
-            customerSessionBeanLocal.createNewCustomer(new Customer("Record E"));
+            customerSessionBeanLocal.createNewCustomer(new Customer("AfirstName", "lastName"));
+            customerSessionBeanLocal.createNewCustomer(new Customer("BfirstName", "lastName"));
+            customerSessionBeanLocal.createNewCustomer(new Customer("CfirstName", "lastName"));
+            customerSessionBeanLocal.createNewCustomer(new Customer("DfirstName", "lastName"));
         }
     } 
 }
