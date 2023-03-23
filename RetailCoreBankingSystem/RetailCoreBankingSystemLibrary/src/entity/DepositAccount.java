@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import util.enumeration.DepositAccountType;
 
 /**
@@ -49,6 +50,8 @@ public class DepositAccount implements Serializable {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Customer customer;
+    @OneToOne 
+    private AtmCard atmCard;
 
     public Long getDepositeAccountId() {
         return depositeAccountId;
@@ -151,6 +154,20 @@ public class DepositAccount implements Serializable {
      */
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    /**
+     * @return the atmCard
+     */
+    public AtmCard getAtmCard() {
+        return atmCard;
+    }
+
+    /**
+     * @param atmCard the atmCard to set
+     */
+    public void setAtmCard(AtmCard atmCard) {
+        this.atmCard = atmCard;
     }
     
 }

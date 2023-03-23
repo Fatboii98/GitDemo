@@ -46,6 +46,10 @@ public class AtmCard implements Serializable {
     @OneToOne
     @JoinColumn(nullable = false)
     private Customer customer;
+    @OneToOne
+    @JoinColumn(nullable = false)
+    private DepositAccount depositAcc;
+    
 
     public Long getAtmCardId() {
         return atmCardId;
