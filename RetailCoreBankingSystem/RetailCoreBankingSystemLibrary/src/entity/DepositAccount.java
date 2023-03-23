@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import util.enumeration.DepositAccountType;
 
 /**
@@ -43,6 +45,10 @@ public class DepositAccount implements Serializable {
     private BigDecimal holdBalance;
     private BigDecimal ledgerBalance;
     private Boolean enabled;
+    
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Customer customer;
 
     public Long getDepositeAccountId() {
         return depositeAccountId;
@@ -131,6 +137,20 @@ public class DepositAccount implements Serializable {
      */
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    /**
+     * @return the customer
+     */
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    /**
+     * @param customer the customer to set
+     */
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
     
 }

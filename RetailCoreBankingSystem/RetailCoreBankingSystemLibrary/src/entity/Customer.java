@@ -6,10 +6,12 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -29,7 +31,14 @@ public class Customer implements Serializable {
     private String addressLine1;
     private String addressLine2;
     private String postalCode;
-
+    
+    @OneToMany (mappedBy = "customer")
+    private List<DepositAccount> depositAcc;
+    @OneToMany (mappedBy = "customer")
+    private List<AtmCard> atmCards;
+    
+    
+    
     public Customer() {
     }
 
@@ -94,6 +103,118 @@ public class Customer implements Serializable {
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    /**
+     * @return the lastName
+     */
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     * @param lastName the lastName to set
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    /**
+     * @return the identificationNumber
+     */
+    public String getIdentificationNumber() {
+        return identificationNumber;
+    }
+
+    /**
+     * @param identificationNumber the identificationNumber to set
+     */
+    public void setIdentificationNumber(String identificationNumber) {
+        this.identificationNumber = identificationNumber;
+    }
+
+    /**
+     * @return the contactNumber
+     */
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    /**
+     * @param contactNumber the contactNumber to set
+     */
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    /**
+     * @return the addressLine1
+     */
+    public String getAddressLine1() {
+        return addressLine1;
+    }
+
+    /**
+     * @param addressLine1 the addressLine1 to set
+     */
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
+    }
+
+    /**
+     * @return the addressLine2
+     */
+    public String getAddressLine2() {
+        return addressLine2;
+    }
+
+    /**
+     * @param addressLine2 the addressLine2 to set
+     */
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
+    }
+
+    /**
+     * @return the postalCode
+     */
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    /**
+     * @param postalCode the postalCode to set
+     */
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    /**
+     * @return the depositAcc
+     */
+    public List<DepositAccount> getDepositAcc() {
+        return depositAcc;
+    }
+
+    /**
+     * @param depositAcc the depositAcc to set
+     */
+    public void setDepositAcc(List<DepositAccount> depositAcc) {
+        this.depositAcc = depositAcc;
+    }
+
+    /**
+     * @return the atmCards
+     */
+    public List<AtmCard> getAtmCards() {
+        return atmCards;
+    }
+
+    /**
+     * @param atmCards the atmCards to set
+     */
+    public void setAtmCards(List<AtmCard> atmCards) {
+        this.atmCards = atmCards;
     }
     
 }

@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -17,6 +19,20 @@ import javax.persistence.Id;
  */
 @Entity
 public class AtmCard implements Serializable {
+
+    /**
+     * @return the customer
+     */
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    /**
+     * @param customer the customer to set
+     */
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -26,6 +42,10 @@ public class AtmCard implements Serializable {
     private String nameOnCard;
     private boolean enabled;
     private String pin;
+    
+    @OneToOne
+    @JoinColumn(nullable = false)
+    private Customer customer;
 
     public Long getAtmCardId() {
         return atmCardId;
